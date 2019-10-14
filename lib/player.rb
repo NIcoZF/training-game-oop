@@ -13,8 +13,8 @@ class Player
   end
 
   def gets_damage(strike)
-    self.life_points -= strike
-    if self.life_points <= 0
+    @life_points -= strike
+    if @life_points <= 0
       puts "Le joueur #{name} a été tué"
       puts '         ===============       '
     end
@@ -22,7 +22,7 @@ class Player
 
   def attacks(player)
     puts '                                '
-    puts "le joueur #{name} attaque le joueur #{player.name}"
+    puts "le joueur #{@name} attaque le joueur #{player.name}"
     puts '                                '
     hit = compute_damage
     player.gets_damage(compute_damage)
@@ -37,12 +37,14 @@ end
 ##############################################################################
 
 class HumanPlayer < Player
+
   attr_accessor :weapon_level
 
   def initialize(name)
+    super(name)  # The order of super seemingly matters
     @weapon_level = 1
     @life_points = 100
-    super(name)
+
   end
 
   def show_state
