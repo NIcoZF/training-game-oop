@@ -43,9 +43,9 @@ while player_1.life_points > 0 && (enemy_1.life_points > 0 || enemy_2.life_point
     player_1.search_weapon
   when "s"
     player_1.search_healt_pack
-  when 0
+  when "0"
     player_1.attacks(enemy_1)
-  when 1
+  when "1"
     player_1.attacks(enemy_2)
     end
   puts '                            '  
@@ -56,11 +56,11 @@ while player_1.life_points > 0 && (enemy_1.life_points > 0 || enemy_2.life_point
     next if enemy.life_points <= 0
     enemy.attacks(player_1)
   end
+end
 
-  puts 'La partie est finie'
+puts 'La partie est finie'
   if player_1.life_points > 0
     puts 'BRAVO ! TU AS GAGNE !'
   else
     puts 'Loser ! Tu as perdu !'
   end
-end
